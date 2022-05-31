@@ -1,8 +1,7 @@
 # script_post_install_ubuntu.sh
 
-* Website:       https://4fasters.com.br
-* Autor:         Mateus Gabriel Müller
-* Colaborador:   Reinaldo Gonçalves
+* Autor:         Mateus Gabriel Müller (https://4fasters.com.br)
+* Adaptado por:  Reinaldo G. P. Neto
 
 # O que ele faz?
   * Esse script instalar os programas que utilizo após a instalação do Ubuntu, faz upgrade e limpeza do sistema. É de fácil expensão (mudar variáveis).
