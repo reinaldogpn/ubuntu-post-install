@@ -211,7 +211,9 @@ upgrade_e_limpeza_sistema()
   sudo apt dist-upgrade -y &> /dev/null
   sudo apt autoclean &> /dev/null
   sudo apt autoremove -y &> /dev/null
+  flatpak update -y &> /dev/null
   nautilus -q
+  neofetch
   echo -e "${VERDE}[INFO] - Fim do script!${SEM_COR}"
 }
 
