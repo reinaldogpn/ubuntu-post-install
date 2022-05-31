@@ -220,7 +220,7 @@ remover_locks
 adicionar_arquitetura_i386
 adicionar_ppas
 atualizar_repositorios
-baixar_outros_programas
+instalar_pacotes_tar
 instalar_pacotes_apt
 instalar_dependencias_allegro
 adicionar_repositorios_flatpak
