@@ -36,7 +36,6 @@
 PPA_ALLEGRO="ppa:allegro/5.2"
 
 # ------------- DIRETÓRIOS ------------- #
-DIRETORIO_PROGRAMAS_DEB="$HOME/Downloads/PROGRAMAS_DEB/"
 DIRETORIO_OUTROS_PROGRAMAS="$HOME/Downloads/OUTROS_PROGRAMAS/"
 
 # ------------- PROGRAMAS ------------- #
@@ -212,7 +211,6 @@ upgrade_e_limpeza_sistema()
   sudo apt dist-upgrade -y &> /dev/null
   sudo apt autoclean &> /dev/null
   sudo apt autoremove -y &> /dev/null
-  sudo rm -r "$DIRETORIO_PROGRAMAS_DEB" &> /dev/null
   nautilus -q
   echo -e "${VERDE}[INFO] - Fim do script!${SEM_COR}"
 }
