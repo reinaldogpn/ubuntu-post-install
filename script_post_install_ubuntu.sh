@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 #
 # script_post_install_ubuntu.sh - Faz a pós configuração do Ubuntu 22.04.
-#
-# Website:       https://4fasters.com.br
-# Autor:         Mateus Gabriel Müller
-# Colaborador:   Reinaldo Gonçalves
 # ------------------------------------------------------------------------ #
 # O QUE ELE FAZ?
 # Esse script instalar os programas que utilizo após a instalação do Ubuntu, faz upgrade
@@ -35,7 +31,7 @@
 # - https://cdn01.foxitsoftware.com/pub/foxit/reader/desktop/linux/2.x/2.4/en_us/FoxitReader.enu.setup.2.4.4.0911.x64.run.tar.gz
 #
 # ---------------------------- VARIÁVEIS --------------------------------- #
-
+#
 # ------------- PPAs ------------- #
 PPA_ALLEGRO="ppa:allegro/5.2"
 
