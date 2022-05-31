@@ -36,7 +36,7 @@
 PPA_ALLEGRO="ppa:allegro/5.2"
 
 # ------------- DIRETÓRIOS ------------- #
-DIRETORIO_OUTROS_PROGRAMAS="$HOME/Downloads/OUTROS_PROGRAMAS/"
+DIRETORIO_PACOTES_TAR="$HOME/Downloads/PACOTES_TAR/"
 
 # ------------- PROGRAMAS ------------- #
 PACOTES_APT=(
