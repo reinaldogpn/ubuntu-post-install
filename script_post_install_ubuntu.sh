@@ -23,7 +23,7 @@
 #   v2.0 27/05/2022, Reinaldo Gonçalves:
 #     - Correções, adaptações e adição de novos programas, além de pequenos aperfeiçoamentos.
 #   v3.0 31/05/2022, Reinaldo Gonçalves:
-#     - Adicionado suporte a pacotes flatpak, pacotes snap e .deb removidos, correções e melhorias.
+#     - Adicionado suporte a pacotes flatpak; pacotes snap e .deb removidos; correções e melhorias.
 # ------------------------------------------------------------------------ #
 # Extras:
 # 
