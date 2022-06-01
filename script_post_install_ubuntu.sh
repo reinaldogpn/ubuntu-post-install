@@ -46,6 +46,7 @@ PACOTES_APT=(
   discord
   flatpak
   gimp
+  gnome-software-plugin-flatpak
   gnome-sushi
   gnome-weather
   inkscape
@@ -140,7 +141,7 @@ instalar_pacotes_tar()
     echo -e "${AMARELO}[INFO] - Descompactando o pacote ${url##*/}...${SEM_COR}"
     tar -vzxf ${url##*/} &> /dev/null
     echo -e "${AMARELO}[INFO] - Instalando o pacote ${url##*/}...${SEM_COR}"
-    ./*.run
+    ./*.run &> /dev/null
     echo -e "${VERDE}[INFO] - O pacote ${url##*/} foi instalado.${SEM_COR}"
   done
 }
@@ -152,13 +153,13 @@ instalar_pacotes_apt()
     if ! dpkg -l | grep -q $pacote; then
       echo -e "${AMARELO}[INFO] - Instalando o pacote $pacote ...${SEM_COR}"
       sudo apt install $pacote -y &> /dev/null
-      if dpkg -l | grep -q $programa; then
+      if dpkg -l | grep -q $pacote; then
         echo -e "${VERDE}[INFO] - O pacote $pacote foi instalado.${SEM_COR}"
       else
         echo -e "${VERMELHO}[ERROR] - O pacote $pacote não foi instalado.${SEM_COR}"
       fi
     else
-      echo -e "${VERDE}[INFO] - O pacote $programa já está instalado.${SEM_COR}"
+      echo -e "${VERDE}[INFO] - O pacote $pacote já está instalado.${SEM_COR}"
     fi
   done
 }
@@ -197,12 +198,14 @@ instalar_pacotes_flatpak()
 instalar_driver_TPLinkT2UPlus()
 {
 #  (Instalação opcional) Driver do adaptador wireless TPLink Archer T2U Plus
-  sudo apt install dkms git
-  sudo apt install build-essential libelf-dev linux-headers-$(uname -r)
-  git clone https://github.com/aircrack-ng/rtl8812au.git
+  echo -e "${AMARELO}[INFO] - Instalando driver wi-fi TPLink...${SEM_COR}"
+  sudo apt install -y dkms git &> /dev/null
+  sudo apt install -y build-essential libelf-dev linux-headers-$(uname -r) &> /dev/null
+  git clone https://github.com/aircrack-ng/rtl8812au.git &> /dev/null
   cd rtl8812au
-  sudo make dkms_install
+  sudo make dkms_install &> /dev/null
 #  se a instalação for abortada, executar o comando: "sudo dkms remove 8812au/5.6.4.2_35491.20191025 --all" , se der erro... "usar: remove / --all"
+  echo -e "${VERDE}[INFO] - Driver wi-fi instalado!${SEM_COR}"
 }
 
 upgrade_e_limpeza_sistema()
@@ -211,10 +214,15 @@ upgrade_e_limpeza_sistema()
   sudo apt dist-upgrade -y &> /dev/null
   sudo apt autoclean &> /dev/null
   sudo apt autoremove -y &> /dev/null
-  flatpak update -y &> /dev/null
+  sudo rm -r $DIRETORIO_PACOTES_TAR &> /dev/null
+  sudo flatpak update -y &> /dev/null
   nautilus -q
   neofetch
-  echo -e "${VERDE}[INFO] - Fim do script!${SEM_COR}"
+  echo -e "${VERDE}[INFO] - Configuração concluída!${SEM_COR}"
+  echo -e "${AMARELO}[INFO] - Reinicialização necessária, deseja reiniciar agora? [S/n]:${SEM_COR}"
+  read opcao
+  [ $opcao = "s" ] || [ $opcao = "S" ] && echo -e "${AMARELO}[INFO] - Fim do script! Reiniciando agora...${SEM_COR}" && reboot
+  echo -e "${VERDE}[INFO] - Fim do script! ${SEM_COR}"
 }
 
 # ----------------------------- EXECUÇÃO --------------------------------- #
