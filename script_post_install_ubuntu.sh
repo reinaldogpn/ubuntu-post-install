@@ -34,29 +34,31 @@
 #
 # ---------------------------- VARIÁVEIS --------------------------------- #
 #
-# ------------- PPAs ------------- #
-PPA_ALLEGRO="ppa:allegro/5.2"
-
-# ------------- DIRETÓRIOS ------------- #
+# ***** DIRETÓRIOS *****
 DIRETORIO_PACOTES_TAR="$HOME/Downloads/PACOTES_TAR/"
 
-# ------------- PROGRAMAS ------------- #
+# ***** PPAs *****
+PPAs=(
+ppa:allegro/5.2
+ppa:codeblocks-devs/release
+)
+
+# ***** PROGRAMAS *****
 PACOTES_APT=(
-  atom
-  calibre
-  codeblocks
-  discord
+  dconf-editor
   flatpak
-  gimp
+  git
   gnome-software-plugin-flatpak
   gnome-sushi
+  gnome-tweaks
   gnome-weather
+  codeblocks
+  gimp
   inkscape
   keepassx
   liballegro5-dev
   neofetch
   qbittorrent
-  snapd
   virtualbox
   vlc
 # steam-installer
@@ -68,18 +70,27 @@ PACOTES_APT=(
 
 PACOTES_FLATPAK=(
   app.ytmdesktop.ytmdesktop
+  com.calibre_ebook.calibre
+  com.discordapp.Discord
   com.google.Chrome
   com.visualstudio.code
   io.github.mimbrero.WhatsAppDesktop
-  org.codeblocks.codeblocks
+  io.atom.Atom
+# org.codeblocks.codeblocks		# CodeBlocks
+# com.spotify.Client  			# Spotify
+# com.valvesoftware.Steam 		# Steam
+# com.mojang.Minecraft 			# Minecraft
+# org.videolan.VLC 			# VLC
+# org.gimp.GIMP 			# GIMP
+# org.inkscape.Inkscape 		# Inkscape
 )
 
-# ------------- OUTROS ------------- #
+# ***** OUTROS *****
 PACOTES_TAR=(
   https://cdn01.foxitsoftware.com/pub/foxit/reader/desktop/linux/2.x/2.4/en_us/FoxitReader.enu.setup.2.4.4.0911.x64.run.tar.gz #Foxit PDF Reader
 )
 
-# ------------- CORES ------------- #
+# ***** CORES *****
 AMARELO='\e[1;93m'
 VERMELHO='\e[1;91m'
 VERDE='\e[1;92m'
@@ -120,8 +131,11 @@ adicionar_arquitetura_i386()
 
 adicionar_ppas()
 {
-  echo -e "${AMARELO}[INFO] - Adicionando PPAs...${SEM_COR}"
-  sudo apt-add-repository "$PPA_ALLEGRO" -y &> /dev/null
+  for url in ${PPAs[@]}; do
+    echo -e "${AMARELO}[INFO] - Adicionando repositório $url...${SEM_COR}"
+    sudo apt-add-repository $url -y
+  done
+  echo -e "${VERDE}[INFO] - Nada mais a adicionar.${SEM_COR}"
 }
 
 atualizar_repositorios()
@@ -216,9 +230,8 @@ upgrade_e_limpeza_sistema()
   sudo apt dist-upgrade -y &> /dev/null
   sudo apt autoclean &> /dev/null
   sudo apt autoremove -y &> /dev/null
-  sudo rm -r $DIRETORIO_PACOTES_TAR &> /dev/null
+  rm -r $DIRETORIO_PACOTES_TAR
   sudo flatpak update -y &> /dev/null
-  nautilus -q
   neofetch
   echo -e "${VERDE}[INFO] - Configuração concluída!${SEM_COR}"
   echo -e "${AMARELO}[INFO] - Reinicialização necessária, deseja reiniciar agora? [S/n]:${SEM_COR}"
