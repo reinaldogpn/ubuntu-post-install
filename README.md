@@ -8,7 +8,7 @@
 
 # Como usar?
   * Dar permissões ao arquivo script: chmod +x nome_do_arquivo ;
-  * $ ./script_post_install_ubuntu.sh
+  * $   _./script_post_install_ubuntu.sh_
 
 # Dica:
   * Para descompactar arquivos .tar.gz use: _tar -zxvf nome_do_arquivo.tar.gz_
