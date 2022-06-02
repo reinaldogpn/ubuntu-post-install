@@ -42,6 +42,7 @@ DIRETORIO_PACOTES_TAR="$HOME/Downloads/PACOTES_TAR/"
 PPAs=(
 ppa:allegro/5.2
 ppa:codeblocks-devs/release
+ppa:graphics-drivers/ppa
 )
 
 # ***** PROGRAMAS *****
@@ -62,11 +63,11 @@ PACOTES_APT=(
   qbittorrent
   virtualbox
   vlc
-# steam-installer
-# steam-devices
-# steam:i386
-# libvulkan1
-# libvulkan1:i386
+  steam-installer
+  steam-devices
+  steam:i386
+  libvulkan1
+  libvulkan1:i386
 )
 
 PACOTES_FLATPAK=(
@@ -77,13 +78,13 @@ PACOTES_FLATPAK=(
   com.visualstudio.code
   io.github.mimbrero.WhatsAppDesktop
   io.atom.Atom
-# org.codeblocks.codeblocks		# CodeBlocks
-# com.spotify.Client  			# Spotify
-# com.valvesoftware.Steam 		# Steam
-# com.mojang.Minecraft 			# Minecraft
-# org.videolan.VLC 			# VLC
-# org.gimp.GIMP 			# GIMP
-# org.inkscape.Inkscape 		# Inkscape
+# org.codeblocks.codeblocks     # CodeBlocks
+# com.spotify.Client            # Spotify
+# com.valvesoftware.Steam 		  # Steam
+# com.mojang.Minecraft 			    # Minecraft
+# org.videolan.VLC 			        # VLC
+# org.gimp.GIMP 			          # GIMP
+# org.inkscape.Inkscape 		    # Inkscape
 )
 
 # ***** OUTROS *****
