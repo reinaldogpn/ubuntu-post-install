@@ -9,8 +9,6 @@
 # Como usar?
   * Dar permissões ao arquivo script: 
 
-        cd .../ubuntu-post-install
-        
         chmod +x ubuntu-post-install.sh
         
   * Executar o script:
