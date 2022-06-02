@@ -135,7 +135,7 @@ adicionar_ppas()
 {
   for url in ${PPAs[@]}; do
     echo -e "${AMARELO}[INFO] - Adicionando repositório $url...${SEM_COR}"
-    sudo apt-add-repository $url -y
+    sudo apt-add-repository $url -y &> /dev/null
   done
   echo -e "${VERDE}[INFO] - Nada mais a adicionar.${SEM_COR}"
 }
@@ -232,7 +232,7 @@ upgrade_e_limpeza_sistema()
   sudo apt dist-upgrade -y &> /dev/null
   sudo apt autoclean &> /dev/null
   sudo apt autoremove -y &> /dev/null
-  rm -r $DIRETORIO_PACOTES_TAR
+  rm -r $DIRETORIO_PACOTES_TAR &> /dev/null
   sudo flatpak update -y &> /dev/null
   neofetch
   echo -e "${VERDE}[INFO] - Configuração concluída!${SEM_COR}"
