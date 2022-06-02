@@ -1,4 +1,4 @@
-# script_post_install_ubuntu.sh
+# ubuntu-post-install.sh
 
 * Autor:         Mateus Gabriel Müller (https://4fasters.com.br)
 * Adaptado por:  Reinaldo G. P. Neto
