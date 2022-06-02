@@ -232,7 +232,7 @@ upgrade_e_limpeza_sistema()
   sudo apt dist-upgrade -y &> /dev/null
   sudo apt autoclean &> /dev/null
   sudo apt autoremove -y &> /dev/null
-  rm -r $DIRETORIO_PACOTES_TAR &> /dev/null
+  rm -rf $DIRETORIO_PACOTES_TAR &> /dev/null
   sudo flatpak update -y &> /dev/null
   neofetch
   echo -e "${VERDE}[INFO] - Configuração concluída!${SEM_COR}"
