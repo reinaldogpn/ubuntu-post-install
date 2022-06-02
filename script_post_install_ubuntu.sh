@@ -31,7 +31,8 @@
 # - https://cdn01.foxitsoftware.com/pub/foxit/reader/desktop/linux/2.x/2.4/en_us/FoxitReader.enu.setup.2.4.4.0911.x64.run.tar.gz
 # Link para download Etcher (AppImage):
 # - https://github.com/balena-io/etcher/releases/download/v1.7.9/balena-etcher-electron-1.7.9-linux-x64.zip?d_id=0d82ff50-dda3-4548-960a-8fa042ff69a4R
-#
+# Deezer Player (Unofficial):
+# - sudo snap install deezer-unofficial-player
 # ---------------------------- VARIÁVEIS --------------------------------- #
 #
 # ***** DIRETÓRIOS *****
