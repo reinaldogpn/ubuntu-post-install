@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# script_post_install_ubuntu.sh - Faz a pós configuração do Ubuntu 22.04.
+# script_post_install_ubuntu.sh - Faz a pós configuração do Ubuntu 22.04 LTS.
 # ------------------------------------------------------------------------ #
 # O QUE ELE FAZ?
 # Esse script instalar os programas que utilizo após a instalação do Ubuntu, faz upgrade
@@ -40,8 +40,8 @@ DIRETORIO_PACOTES_TAR="$HOME/Downloads/PACOTES_TAR/"
 
 # ***** PPAs *****
 PPAs=(
-ppa:allegro/5.2
-ppa:codeblocks-devs/release
+# ppa:allegro/5.2                 # not working on 22.04 LTS
+# ppa:codeblocks-devs/release     # not working on 22.04 LTS
 ppa:graphics-drivers/ppa
 )
 
@@ -50,6 +50,7 @@ PACOTES_APT=(
   dconf-editor
   flatpak
   git
+  gnome-calendar
   gnome-software-plugin-flatpak
   gnome-sushi
   gnome-tweaks
@@ -62,6 +63,7 @@ PACOTES_APT=(
   libreoffice
   neofetch
   qbittorrent
+  rhythmbox
   virtualbox
   vlc
 # steam-installer
