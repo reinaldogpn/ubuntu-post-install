@@ -59,15 +59,16 @@ PACOTES_APT=(
   inkscape
   keepassx
   liballegro5-dev
+  libreoffice
   neofetch
   qbittorrent
   virtualbox
   vlc
-  steam-installer
-  steam-devices
-  steam:i386
-  libvulkan1
-  libvulkan1:i386
+# steam-installer
+# steam-devices
+# steam:i386
+# libvulkan1
+# libvulkan1:i386
 )
 
 PACOTES_FLATPAK=(
@@ -219,10 +220,10 @@ instalar_driver_TPLinkT2UPlus()
   echo -e "${AMARELO}[INFO] - Instalando driver wi-fi TPLink...${SEM_COR}"
   sudo apt install -y dkms git &> /dev/null
   sudo apt install -y build-essential libelf-dev linux-headers-$(uname -r) &> /dev/null
-  git clone https://github.com/aircrack-ng/rtl8812au.git &> /dev/null
-  cd rtl8812au
+  git clone https://github.com/aircrack-ng/rtl8812au.git $HOME/Downloads/ &> /dev/null
+  cd $HOME/Downloads/rtl8812au
   sudo make dkms_install &> /dev/null
-#  se a instalação for abortada, executar o comando: "sudo dkms remove 8812au/5.6.4.2_35491.20191025 --all" , se der erro... "usar: remove / --all"
+#  se a instalação for abortada, executar o comando: "sudo dkms remove 8812au/5.6.4.2_35491.20191025 --all"
   echo -e "${VERDE}[INFO] - Driver wi-fi instalado!${SEM_COR}"
 }
 
@@ -232,7 +233,7 @@ upgrade_e_limpeza_sistema()
   sudo apt dist-upgrade -y &> /dev/null
   sudo apt autoclean &> /dev/null
   sudo apt autoremove -y &> /dev/null
-  rm -rf $DIRETORIO_PACOTES_TAR &> /dev/null
+  rm -rf $DIRETORIO_PACOTES_TAR $HOME/Downloads/rtl8812au &> /dev/null
   sudo flatpak update -y &> /dev/null
   neofetch
   echo -e "${VERDE}[INFO] - Configuração concluída!${SEM_COR}"
