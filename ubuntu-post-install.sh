@@ -222,8 +222,9 @@ instalar_driver_TPLinkT2UPlus()
   echo -e "${AMARELO}[INFO] - Instalando driver wi-fi TPLink...${SEM_COR}"
   sudo apt install -y dkms git &> /dev/null
   sudo apt install -y build-essential libelf-dev linux-headers-$(uname -r) &> /dev/null
-  git clone https://github.com/aircrack-ng/rtl8812au.git $HOME/Downloads/ &> /dev/null
-  cd $HOME/Downloads/rtl8812au
+  mkdir $HOME/Downloads/rtl8812au/
+  git clone https://github.com/aircrack-ng/rtl8812au.git $HOME/Downloads/rtl8812au/ &> /dev/null
+  cd $HOME/Downloads/rtl8812au/
   sudo make dkms_install &> /dev/null
 #  se a instalação for abortada, executar o comando: "sudo dkms remove 8812au/5.6.4.2_35491.20191025 --all"
   echo -e "${VERDE}[INFO] - Driver wi-fi instalado!${SEM_COR}"
