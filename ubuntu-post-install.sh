@@ -42,7 +42,7 @@ DIRETORIO_PACOTES_TAR="$HOME/Downloads/PACOTES_TAR/"
 PPAs=(
 # ppa:allegro/5.2                 # not working on 22.04 LTS
 # ppa:codeblocks-devs/release     # not working on 22.04 LTS
-ppa:graphics-drivers/ppa
+  ppa:graphics-drivers/ppa
 )
 
 # ***** PROGRAMAS *****
