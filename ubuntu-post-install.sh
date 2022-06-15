@@ -60,7 +60,6 @@ PACOTES_APT=(
   inkscape
   keepassx
   liballegro5-dev
-  libreoffice
   neofetch
   qbittorrent
   rhythmbox
@@ -81,6 +80,7 @@ PACOTES_FLATPAK=(
   com.visualstudio.code
   io.github.mimbrero.WhatsAppDesktop
   io.atom.Atom
+  org.onlyoffice.desktopeditors
 # org.codeblocks.codeblocks     # CodeBlocks
 # com.spotify.Client            # Spotify
 # com.valvesoftware.Steam 		  # Steam
