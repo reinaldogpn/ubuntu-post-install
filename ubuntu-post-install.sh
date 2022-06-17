@@ -81,6 +81,7 @@ PACOTES_FLATPAK=(
   io.github.mimbrero.WhatsAppDesktop
   io.atom.Atom
   org.onlyoffice.desktopeditors
+  org.gtk.Gtk3theme-Yaru-dark
 # org.codeblocks.codeblocks     # CodeBlocks
 # com.spotify.Client            # Spotify
 # com.valvesoftware.Steam 		  # Steam
@@ -91,9 +92,8 @@ PACOTES_FLATPAK=(
 )
 
 # ***** OUTROS *****
-PACOTES_TAR=(
-  https://cdn01.foxitsoftware.com/pub/foxit/reader/desktop/linux/2.x/2.4/en_us/FoxitReader.enu.setup.2.4.4.0911.x64.run.tar.gz #Foxit PDF Reader
-)
+
+# PACOTES_TAR=()
 
 # ***** CORES *****
 AMARELO='\e[1;93m'
@@ -251,11 +251,11 @@ remover_locks
 adicionar_arquitetura_i386
 adicionar_ppas
 atualizar_repositorios
-instalar_pacotes_tar
+# instalar_pacotes_tar
 instalar_pacotes_apt
 instalar_dependencias_allegro
 adicionar_repositorios_flatpak
 instalar_pacotes_flatpak
-#instalar_driver_TPLinkT2UPlus
+# instalar_driver_TPLinkT2UPlus
 upgrade_e_limpeza_sistema
 # ------------------------------------------------------------------------ #
