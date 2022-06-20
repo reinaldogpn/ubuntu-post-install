@@ -47,16 +47,17 @@
 # ***** PROGRAMAS *****
 PACOTES_APT=(
   calibre
-  chrome-gnome-shell
+  codeblocks
   dconf-editor
   flatpak
+  google-chrome-stable
+  chrome-gnome-shell
   gnome-calendar
   gnome-software
   gnome-software-plugin-flatpak
   gnome-sushi
   gnome-tweaks
   gnome-weather
-  codeblocks
   gimp
   inkscape
   keepassx
@@ -70,12 +71,11 @@ PACOTES_APT=(
 PACOTES_FLATPAK=(
   app.ytmdesktop.ytmdesktop
   com.discordapp.Discord
-  com.google.Chrome
   com.visualstudio.code
   io.github.mimbrero.WhatsAppDesktop
-  io.atom.Atom
   org.onlyoffice.desktopeditors
   org.gtk.Gtk3theme-Yaru-dark
+# io.atom.Atom
 )
 
 # ***** CORES *****
