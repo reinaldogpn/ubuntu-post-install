@@ -3,8 +3,8 @@
 # script_post_install_ubuntu.sh - Faz a pós configuração do Ubuntu 22.04 LTS.
 # ------------------------------------------------------------------------ #
 # O QUE ELE FAZ?
-# Esse script instalar os programas que utilizo após a instalação do Ubuntu, faz upgrade
-# e limpeza do sistema. É de fácil expensão (mudar variáveis).
+# - Esse script instala os programas que utilizo no Ubuntu de forma 100% automática e com 0 interação com o usuário, faz upgrade
+#   e limpeza do sistema e é de fácil manutenção.
 #
 # COMO USAR?
 #   - Dar permissões ao arquivo script: chmod +x nome_do_arquivo:
@@ -49,6 +49,7 @@ PACOTES_APT=(
   calibre
   codeblocks
   dconf-editor
+  drawing
   flatpak
   google-chrome-stable
   chrome-gnome-shell
