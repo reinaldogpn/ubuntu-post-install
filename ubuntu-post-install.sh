@@ -46,14 +46,13 @@
 
 # ***** PROGRAMAS *****
 PACOTES_APT=(
-  calibre
   codeblocks
   dconf-editor
   drawing
   flatpak
-  google-chrome-stable
   chrome-gnome-shell
   gnome-calendar
+  gnome-photos
   gnome-software
   gnome-software-plugin-flatpak
   gnome-sushi
@@ -61,22 +60,37 @@ PACOTES_APT=(
   gnome-weather
   gimp
   inkscape
-  keepassx
   liballegro5-dev
+  nautilus-dropbox
   neofetch
+  pinhole
+  plocate
   qbittorrent
+  rhythmbox
   virtualbox
   vlc
 )
 
+PACOTES_DEB=(
+# Chrome
+  https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+# Discord
+  https://discord.com/api/download?platform=linux&format=deb
+# OnlyOffice
+  https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_amd64.deb?_ga=2.142886837.1844875987.1659561064-1369716999.1659561064
+# Mailspring
+  https://objects.githubusercontent.com/github-production-release-asset-2e65be/70777180/b82a20e4-fb89-437a-aa59-ad76bf09109a?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20220803%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220803T211238Z&X-Amz-Expires=300&X-Amz-Signature=e8ba32a82ea497958724c74364d90b137ba4e1d258d76333b3a072f00d840677&X-Amz-SignedHeaders=host&actor_id=106502559&key_id=0&repo_id=70777180&response-content-disposition=attachment%3B%20filename%3Dmailspring-1.10.3-amd64.deb&response-content-type=application%2Foctet-stream
+# Visual Studio Code
+  https://az764295.vo.msecnd.net/stable/3b889b090b5ad5793f524b5d1d39fda662b96a2a/code_1.69.2-1658162013_amd64.deb
+# Atom
+  https://atom-installer.github.com/v1.60.0/atom-amd64.deb?s=1646703804&ext=.deb
+)
+
+DIRETORIO_DOWNLOAD_DEB="/home/$USER/Downloads/PACOTES_DEB"
+
 PACOTES_FLATPAK=(
-  app.ytmdesktop.ytmdesktop
-  com.discordapp.Discord
-  com.visualstudio.code
   io.github.mimbrero.WhatsAppDesktop
-  org.onlyoffice.desktopeditors
-  org.gtk.Gtk3theme-Yaru-dark
-# io.atom.Atom
+  Yaru-dark
 )
 
 # ***** CORES *****
@@ -90,18 +104,17 @@ FILE="/home/$USER/.config/gtk-3.0/bookmarks"
 
 # Adicionar o diretório e o alias respectivamente
 DIRETORIOS=(
-/home/$USER/Projetos
-/home/$USER/GitHub
 /home/$USER/Utilidades
 )
 
 ALIASES=(
-"/home/$USER/Projetos 👨🏻‍💻 Projetos" 
-"/home/$USER/GitHub 🤖 GitHub" 
-"/home/$USER/Utilidades 🧰 Utilidades"
+"/home/$USER/Utilidades Utilidades"
+"/home/$USER/Dropbox 🧰 Dropbox"
 )
 
-# ------------------------------ TESTES ---------------------------------- #
+# ------------------------------ FUNÇÕES --------------------------------- #
+realizar_testes()
+{
 # Internet conectando?
 if ! ping -c 1 8.8.8.8 -q &> /dev/null; then
   echo -e "${VERMELHO}[ERROR] - Seu computador não tem conexão com a internet. Verifique os cabos e o modem.${SEM_COR}"
@@ -118,8 +131,8 @@ if [[ ! -x $(which wget) ]]; then
 else
   echo -e "${VERDE}[INFO] - O programa wget já está instalado.${SEM_COR}"
 fi
+}
 
-# ------------------------------ FUNÇÕES --------------------------------- #
 remover_locks() 
 {
   echo -e "${AMARELO}[INFO] - Removendo locks...${SEM_COR}"
@@ -154,6 +167,29 @@ instalar_pacotes_apt()
       fi
     else
       echo -e "${VERDE}[INFO] - O pacote $pacote já está instalado.${SEM_COR}"
+    fi
+  done
+}
+
+instalar_pacotes_deb()
+{
+  echo -e "${AMARELO}[INFO] - Baixando pacotes .deb ...${SEM_COR}"
+  for url in ${PACOTES_DEB[@]}; do
+    url_extraida=$(echo -e ${url##*/} | sed 's/-/_/g' | cut -d _ -f 1)
+    if ! dpkg -l | grep -iq $url_extraida; then
+      echo -e "${AMARELO}[INFO] - Baixando o pacote $url_extraida ...${SEM_COR}"
+      wget -c "$url" -P "$DIRETORIO_DOWNLOAD_DEB" &> /dev/null
+      echo -e "${AMARELO}[INFO] - Instalando o pacote $url_extraida...${SEM_COR}"
+      sudo dpkg -i $DIRETORIO_DOWNLOAD_DEB/${url##*/} &> /dev/null
+      echo -e "${AMARELO}[INFO] - Instalando dependências ...${SEM_COR}"
+      sudo apt -f install -y &> /dev/null
+      if dpkg -l | grep -iq $url_extraida; then
+        echo -e "${VERDE}[INFO] - O pacote $url_extraida foi instalado.${SEM_COR}"
+      else
+        echo -e "${VERMELHO}[ERROR] - O pacote $url_extraida não foi instalado.${SEM_COR}"
+      fi
+    else
+      echo -e "${VERDE}[INFO] - O pacote $url_extraida já está instalado.${SEM_COR}"
     fi
   done
 }
@@ -224,6 +260,7 @@ extra_config()
 upgrade_e_limpeza_sistema()
 {
   echo -e "${AMARELO}[INFO] - Fazendo upgrade e limpeza do sistema ...${SEM_COR}"
+  sudo apt --fix-broken install -y &> /dev/null
   sudo apt dist-upgrade -y &> /dev/null
   sudo flatpak update -y &> /dev/null
   sudo snap refresh &> /dev/null
@@ -239,10 +276,12 @@ upgrade_e_limpeza_sistema()
 }
 
 # ----------------------------- EXECUÇÃO --------------------------------- #
+realizar_testes
 remover_locks
 adicionar_arquitetura_i386
 atualizar_repositorios
 instalar_pacotes_apt
+instalar_pacotes_deb
 instalar_dependencias_allegro
 adicionar_repositorios_flatpak
 instalar_pacotes_flatpak
