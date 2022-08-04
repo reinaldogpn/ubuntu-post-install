@@ -109,7 +109,7 @@ DIRETORIOS=(
 
 ALIASES=(
 "/home/$USER/Utilidades Utilidades"
-"/home/$USER/Dropbox 🧰 Dropbox"
+"/home/$USER/Dropbox Dropbox"
 )
 
 # ------------------------------ FUNÇÕES --------------------------------- #
