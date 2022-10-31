@@ -41,6 +41,8 @@
 # Steam's Counter Strike Global Offensive init options:
 # - -tickrate 128 +fps_max 0 -nojoy -novid -fullscreen -r_emulate_gl -limitvsconst -forcenovsync -softparticlesdefaultoff +mat_queue_mode 2 +mat_disable_fancy_blending 1 +r_dynamic 0 -refresh 75
 #
+# Bottles's permission to add programs shortcut to desktop:
+# - flatpak override com.usebottles.bottles --user --filesystem=xdg-data/applications
 # ---------------------------- VARIÁVEIS --------------------------------- #
 
 # ***** PROGRAMAS *****
