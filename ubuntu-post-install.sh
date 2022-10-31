@@ -27,25 +27,25 @@
 #     - Adicionado suporte a pacotes flatpak; pacotes snap e .deb removidos; correções e melhorias.
 #   v3.1 19/06/2022, reinaldogpn:
 #     - Remoção de pacotes desnecessários e atualização geral do script.
+#   v3.2 31/10/2022, reinaldogpn:
+#     - (Re)Adição de alguns pacotes .deb e adição do flatpak Bottles em substituição ao Wine.
 # ------------------------------------------------------------------------ #
 # Extras:
 # 
-# Link para download Foxit PDF Reader:
-# - https://cdn01.foxitsoftware.com/pub/foxit/reader/desktop/linux/2.x/2.4/en_us/FoxitReader.enu.setup.2.4.4.0911.x64.run.tar.gz
+# Fix for LoL "Critical Error":
+# - sudo sysctl -w abi.vsyscall32=0 && lutris
 #
-# Link para download Etcher (AppImage):
-# - https://github.com/balena-io/etcher/releases/download/v1.7.9/balena-etcher-electron-1.7.9-linux-x64.zip?d_id=0d82ff50-dda3-4548-960a-8fa042ff69a4R
+# Disable 2K Louncher on Steam's Civilization VI init options:
+# - eval $( echo "%command%" | sed "s/2KLauncher\/LauncherPatcher.exe'.*/Base\/Binaries\/Win64Steam\/CivilizationVI.exe'/" )
 #
-# Deezer Player (Unofficial):
-# - sudo snap install deezer-unofficial-player
-#
-# Flatpak Yaru dark theme:
-# - flatpak install flathub org.gtk.Gtk3theme-Yaru-dark
+# Steam's Counter Strike Global Offensive init options:
+# - -tickrate 128 +fps_max 0 -nojoy -novid -fullscreen -r_emulate_gl -limitvsconst -forcenovsync -softparticlesdefaultoff +mat_queue_mode 2 +mat_disable_fancy_blending 1 +r_dynamic 0 -refresh 75
 #
 # ---------------------------- VARIÁVEIS --------------------------------- #
 
 # ***** PROGRAMAS *****
 PACOTES_APT=(
+  calibre
   codeblocks
   dconf-editor
   drawing
@@ -58,15 +58,18 @@ PACOTES_APT=(
   gnome-sushi
   gnome-tweaks
   gnome-weather
-  gimp
-  inkscape
   liballegro5-dev
+  libvulkan1
+  libvulkan1:i386
   nautilus-dropbox
   neofetch
   pinhole
   plocate
   qbittorrent
   rhythmbox
+  steam-installer
+  steam-devices
+  steam:i386
   virtualbox
   vlc
 )
@@ -82,13 +85,12 @@ PACOTES_DEB=(
   "https://updates.getmailspring.com/download?platform=linuxDeb"
 # Visual Studio Code
   "https://az764295.vo.msecnd.net/stable/3b889b090b5ad5793f524b5d1d39fda662b96a2a/code_1.69.2-1658162013_amd64.deb"
-# Atom
-  "https://atom-installer.github.com/v1.60.0/atom-amd64.deb?s=1646703804&ext=.deb"
 )
 
 DIRETORIO_DOWNLOAD_DEB="/home/$USER/Downloads/PACOTES_DEB"
 
 PACOTES_FLATPAK=(
+  com.usebottles.bottles
   io.github.mimbrero.WhatsAppDesktop
   Yaru-dark
 )
