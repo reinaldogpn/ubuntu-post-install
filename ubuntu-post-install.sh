@@ -29,6 +29,7 @@
 #     - Remoção de pacotes desnecessários e atualização geral do script.
 #   v3.2 31/10/2022, reinaldogpn:
 #     - (Re)Adição de alguns pacotes .deb e adição do flatpak Bottles em substituição ao Wine.
+#
 # ------------------------------------------------------------------------ #
 # Extras:
 # 
@@ -43,6 +44,10 @@
 #
 # Bottles's permission to add programs shortcut to desktop:
 # - flatpak override com.usebottles.bottles --user --filesystem=xdg-data/applications
+#
+# Install Zotero .deb version:
+# - https://github.com/retorquere/zotero-deb#installing-zotero--juris-m
+#
 # ---------------------------- VARIÁVEIS --------------------------------- #
 
 # ***** PROGRAMAS *****
