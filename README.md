@@ -1,18 +1,17 @@
 # ubuntu-post-install.sh
 
-* Autor:  Reinaldo G. P. Neto
+### What it does
 
-# O que ele faz?
-  * Esse script instalar os programas que utilizo após a instalação do Ubuntu, faz upgrade e limpeza do sistema. É de fácil expensão (mudar variáveis).
+This script automatically installs every program I use in my PC, runs updates and does after-clean tasks.
 
-# Como usar?
-  * Dar permissões ao arquivo script: 
+### Running
 
-        chmod +x ubuntu-post-install.sh
-        
-  * Executar o script:
+```
+curl -sL https://raw.githubusercontent.com/reinaldogpn/ubuntu-post-install/main/ubuntu-post-install.sh | sudo bash
+```
 
-        ./ubuntu-post-install.sh
+* _or you can download .sh file and run it by yourself:_
 
-# Dica:
-  * Para descompactar arquivos .tar.gz use: _tar -zxvf nome_do_arquivo.tar.gz_
+```
+chmod +x ubuntu-post-install.sh && bash ubuntu-post-install.sh
+```
