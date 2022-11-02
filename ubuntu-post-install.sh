@@ -48,6 +48,8 @@
 # Install Zotero .deb version:
 # - https://github.com/retorquere/zotero-deb#installing-zotero--juris-m
 #
+# VBox Extension Pack:
+# - https://download.virtualbox.org/virtualbox/7.0.2/Oracle_VM_VirtualBox_Extension_Pack-7.0.2.vbox-extpack
 # ---------------------------- VARIÁVEIS --------------------------------- #
 
 # ***** PROGRAMAS *****
@@ -97,6 +99,7 @@ PACOTES_DEB=(
 DIRETORIO_DOWNLOAD_DEB="/home/$USER/Downloads/PACOTES_DEB"
 
 PACOTES_FLATPAK=(
+  com.spotify.Client
   com.usebottles.bottles
   io.github.mimbrero.WhatsAppDesktop
   org.gtk.Gtk3theme.Yaru-dark
