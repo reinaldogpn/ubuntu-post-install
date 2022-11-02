@@ -281,7 +281,7 @@ adicionar_arquitetura_i386
 atualizar_repositorios
 instalar_pacotes_apt
 instalar_pacotes_deb
-# instalar_dependencias_allegro
+instalar_dependencias_allegro
 adicionar_repositorios_flatpak
 instalar_pacotes_flatpak
 instalar_driver_TPLinkT2UPlus
