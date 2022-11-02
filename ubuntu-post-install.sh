@@ -90,8 +90,6 @@ PACOTES_DEB=(
   "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 # Discord
   "https://dl.discordapp.net/apps/linux/0.0.21/discord-0.0.21.deb"
-# OnlyOffice
-  "https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_amd64.deb"
 # Visual Studio Code
   "https://az764295.vo.msecnd.net/stable/3b889b090b5ad5793f524b5d1d39fda662b96a2a/code_1.69.2-1658162013_amd64.deb"
 )
@@ -99,11 +97,12 @@ PACOTES_DEB=(
 DIRETORIO_DOWNLOAD_DEB="/home/$USER/Downloads/PACOTES_DEB"
 
 PACOTES_FLATPAK=(
-  com.spotify.Client
-  com.usebottles.bottles
-  io.github.mimbrero.WhatsAppDesktop
-  org.gtk.Gtk3theme.Yaru-dark
-  org.gnome.Epiphany
+  com.spotify.Client                    # Spotify
+  com.usebottles.bottles                # Bottles
+  io.github.mimbrero.WhatsAppDesktop    # Whatsapp
+  org.gtk.Gtk3theme.Yaru-dark           # Yaru-dark theme
+  org.gnome.Epiphany                    # Epiphany (Gnome Web)
+  org.onlyoffice.desktopeditors         # OnlyOffice
 )
 
 # ***** CORES *****
