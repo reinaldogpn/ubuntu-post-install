@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# script_post_install_ubuntu.sh - Faz a pós configuração do Ubuntu 22.04 LTS.
+# script_post_install_ubuntu.sh - Faz a pós instalação do Ubuntu >= 20.04 LTS.
 # ------------------------------------------------------------------------ #
 # O QUE ELE FAZ?
 # - Esse script instala os programas que utilizo no Ubuntu de forma 100% automática e com 0 interação com o usuário, faz upgrade
@@ -58,6 +58,7 @@ PACOTES_APT=(
   drawing
   flatpak
   chrome-gnome-shell
+  filezilla
   gnome-calendar
   gnome-photos
   gnome-software
@@ -79,17 +80,16 @@ PACOTES_APT=(
   steam:i386
   virtualbox
   vlc
+  zotero
 )
 
 PACOTES_DEB=(
 # Chrome
   "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 # Discord
-  "https://discord.com/api/download?platform=linux&format=deb"
+  "https://dl.discordapp.net/apps/linux/0.0.21/discord-0.0.21.deb"
 # OnlyOffice
-  "https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_amd64.deb?_ga=2.142886837.1844875987.1659561064-1369716999.1659561064"
-# Mailspring
-  "https://updates.getmailspring.com/download?platform=linuxDeb"
+  "https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_amd64.deb"
 # Visual Studio Code
   "https://az764295.vo.msecnd.net/stable/3b889b090b5ad5793f524b5d1d39fda662b96a2a/code_1.69.2-1658162013_amd64.deb"
 )
@@ -99,7 +99,8 @@ DIRETORIO_DOWNLOAD_DEB="/home/$USER/Downloads/PACOTES_DEB"
 PACOTES_FLATPAK=(
   com.usebottles.bottles
   io.github.mimbrero.WhatsAppDesktop
-  Yaru-dark
+  org.gtk.Gtk3theme.Yaru-dark
+  org.gnome.Epiphany
 )
 
 # ***** CORES *****
@@ -113,11 +114,11 @@ FILE="/home/$USER/.config/gtk-3.0/bookmarks"
 
 # Adicionar o diretório e o alias respectivamente
 DIRETORIOS=(
-/home/$USER/Utilidades
+/home/$USER/Projetos
 )
 
 ALIASES=(
-"/home/$USER/Utilidades Utilidades"
+"/home/$USER/Projetos Projetos"
 "/home/$USER/Dropbox Dropbox"
 )
 
@@ -152,6 +153,7 @@ remover_locks()
 
 adicionar_arquitetura_i386() 
 {
+  wget -qO- https://raw.githubusercontent.com/retorquere/zotero-deb/master/install.sh
   echo -e "${AMARELO}[INFO] - Adicionando arquitetura i386...${SEM_COR}"
   sudo dpkg --add-architecture i386 &> /dev/null
 }
@@ -159,6 +161,7 @@ adicionar_arquitetura_i386()
 atualizar_repositorios()
 {
   echo -e "${AMARELO}[INFO] - Atualizando repositórios ...${SEM_COR}"
+  curl -sL https://raw.githubusercontent.com/retorquere/zotero-deb/master/install.sh | sudo bash &> /dev/null # Adds Zotero's repository
   sudo apt update -y &> /dev/null
 }
 
@@ -278,7 +281,7 @@ adicionar_arquitetura_i386
 atualizar_repositorios
 instalar_pacotes_apt
 instalar_pacotes_deb
-instalar_dependencias_allegro
+# instalar_dependencias_allegro
 adicionar_repositorios_flatpak
 instalar_pacotes_flatpak
 instalar_driver_TPLinkT2UPlus
