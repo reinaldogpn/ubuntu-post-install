@@ -62,24 +62,19 @@ PACOTES_APT=(
   chrome-gnome-shell
   filezilla
   gnome-calendar
+  gnome-extensions
   gnome-photos
   gnome-software
   gnome-software-plugin-flatpak
   gnome-sushi
   gnome-tweaks
   gnome-weather
-  liballegro5-dev
-  libvulkan1
-  libvulkan1:i386
   nautilus-dropbox
   neofetch
   pinhole
   plocate
   qbittorrent
   rhythmbox
-  steam-installer
-  steam-devices
-  steam:i386
   virtualbox
   vlc
   zotero
@@ -99,10 +94,21 @@ DIRETORIO_DOWNLOAD_DEB="/home/$USER/Downloads/PACOTES_DEB"
 PACOTES_FLATPAK=(
   com.spotify.Client                    # Spotify
   com.usebottles.bottles                # Bottles
+  com.getmailspring.Mailspring          # Mailspring
   io.github.mimbrero.WhatsAppDesktop    # Whatsapp
   org.gtk.Gtk3theme.Yaru-dark           # Yaru-dark theme
   org.gnome.Epiphany                    # Epiphany (Gnome Web)
   org.onlyoffice.desktopeditors         # OnlyOffice
+)
+
+PACOTES_GAMES=(
+  libvulkan1
+  libvulkan1:i386
+  lutris
+  steam-installer
+  steam-devices
+  steam:i386
+  wine
 )
 
 # ***** CORES *****
@@ -199,7 +205,7 @@ instalar_pacotes_deb()
 instalar_dependencias_allegro()
 {
   echo -e "${AMARELO}[INFO] - Instalando dependências do Allegro ...${SEM_COR}"
-  sudo apt install -y cmake g++ freeglut3-dev libxcursor-dev libpng-dev libjpeg-dev libfreetype6-dev libgtk2.0-dev libasound2-dev libpulse-dev libopenal-dev libflac-dev libdumb1-dev libvorbis-dev libphysfs-dev &> /dev/null
+  sudo apt install -y liballegro5-dev cmake g++ freeglut3-dev libxcursor-dev libpng-dev libjpeg-dev libfreetype6-dev libgtk2.0-dev libasound2-dev libpulse-dev libopenal-dev libflac-dev libdumb1-dev libvorbis-dev libphysfs-dev &> /dev/null
 }
 
 adicionar_repositorios_flatpak()
@@ -239,6 +245,24 @@ instalar_driver_TPLinkT2UPlus()
   sudo make dkms_install &> /dev/null
 #  se a instalação for abortada, executar o comando: "sudo dkms remove 8812au/5.6.4.2_35491.20191025 --all"
   echo -e "${VERDE}[INFO] - Driver wi-fi instalado!${SEM_COR}"
+}
+
+instalar_suporte_games()
+{
+  echo -e "${AMARELO}[INFO] - Instalando pacotes e drivers de suporte a games ...${SEM_COR}"
+  for pacote in ${PACOTES_GAMES[@]}; do
+    if ! dpkg -l | grep -q $pacote; then
+      echo -e "${AMARELO}[INFO] - Instalando o pacote $pacote ...${SEM_COR}"
+      sudo apt install $pacote -y &> /dev/null
+      if dpkg -l | grep -q $pacote; then
+        echo -e "${VERDE}[INFO] - O pacote $pacote foi instalado.${SEM_COR}"
+      else
+        echo -e "${VERMELHO}[ERROR] - O pacote $pacote não foi instalado.${SEM_COR}"
+      fi
+    else
+      echo -e "${VERDE}[INFO] - O pacote $pacote já está instalado.${SEM_COR}"
+    fi
+  done
 }
 
 extra_config()
@@ -283,9 +307,10 @@ adicionar_arquitetura_i386
 atualizar_repositorios
 instalar_pacotes_apt
 instalar_pacotes_deb
-instalar_dependencias_allegro
+#instalar_dependencias_allegro
 adicionar_repositorios_flatpak
 instalar_pacotes_flatpak
 instalar_driver_TPLinkT2UPlus
+#instalar_suporte_games
 extra_config
 upgrade_e_limpeza_sistema
