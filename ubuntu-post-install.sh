@@ -53,9 +53,8 @@
 #
 # Wimlib (Woeusb) requirements:
 # - sudo apt install libxml2-dev libfuse-dev ntfs-3g-dev
-# - https://wimlib.net
+# - Download Wimlib (https://wimlib.net); extrair; ./configure; make; make install;
 # - git clone https://github.com/WoeUSB/WoeUSB
-#
 # ---------------------------- VARIÁVEIS --------------------------------- #
 
 # ***** PROGRAMAS *****
