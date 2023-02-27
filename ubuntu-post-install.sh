@@ -56,7 +56,7 @@
 # - Download and compile Wimlib (https://wimlib.net); extrair; ./configure; make; sudo make install;
 # - sudo ldconfig -v
 # - git clone https://github.com/WoeUSB/WoeUSB
-# - ./woeusb --device path/Windows.iso /dev/sdX
+# - sudo ./woeusb --device path/Windows.iso /dev/sdX
 # ---------------------------- VARIÁVEIS --------------------------------- #
 
 # ***** PROGRAMAS *****
