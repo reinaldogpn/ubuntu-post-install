@@ -51,10 +51,11 @@
 # VBox Extension Pack:
 # - https://download.virtualbox.org/virtualbox/7.0.2/Oracle_VM_VirtualBox_Extension_Pack-7.0.2.vbox-extpack
 #
-# Wimlib (Woeusb) requirements:
+# Woeusb requirements & use:
 # - sudo apt install libxml2-dev libfuse-dev ntfs-3g-dev
 # - Download Wimlib (https://wimlib.net); extrair; ./configure; make; make install;
 # - git clone https://github.com/WoeUSB/WoeUSB
+# - ./woeusb --device path/Windows.iso /dev/sdX
 # ---------------------------- VARIÁVEIS --------------------------------- #
 
 # ***** PROGRAMAS *****
