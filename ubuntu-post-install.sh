@@ -91,7 +91,7 @@ PACOTES_DEB=(
 # Chrome
   "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 # Discord
-  "https://dl.discordapp.net/apps/linux/0.0.21/discord-0.0.21.deb"
+  "https://dl.discordapp.net/apps/linux/0.0.25/discord-0.0.25.deb"
 # Visual Studio Code
   "https://az764295.vo.msecnd.net/stable/3b889b090b5ad5793f524b5d1d39fda662b96a2a/code_1.69.2-1658162013_amd64.deb"
 )
