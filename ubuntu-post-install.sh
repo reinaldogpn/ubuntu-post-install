@@ -53,7 +53,7 @@
 #
 # Woeusb requirements & use:
 # - sudo apt install libxml2-dev libfuse-dev ntfs-3g-dev
-# - Download Wimlib (https://wimlib.net); extrair; ./configure; make; make install;
+# - Download Wimlib (https://wimlib.net); extrair; ./configure; make; sudo make install;
 # - git clone https://github.com/WoeUSB/WoeUSB
 # - ./woeusb --device path/Windows.iso /dev/sdX
 # ---------------------------- VARIÁVEIS --------------------------------- #
