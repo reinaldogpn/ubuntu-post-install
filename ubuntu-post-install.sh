@@ -55,7 +55,7 @@
 # - sudo apt install libxml2-dev libfuse-dev ntfs-3g-dev
 # - Download and compile Wimlib (https://wimlib.net); extrair; ./configure; make; sudo make install;
 # - sudo ldconfig -v
-# - git clone https://github.com/WoeUSB/WoeUSB
+# - Download Woeusb (https://github.com/WoeUSB/WoeUSB/releases)
 # - sudo ./woeusb --device path/Windows.iso /dev/sdX
 # ---------------------------- VARIÁVEIS --------------------------------- #
 
