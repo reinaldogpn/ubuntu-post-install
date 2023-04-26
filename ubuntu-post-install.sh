@@ -1,21 +1,16 @@
 #!/usr/bin/env bash
-#
-# script_post_install_ubuntu.sh - Faz a pós instalação do Ubuntu >= 20.04 LTS.
 # ------------------------------------------------------------------------ #
 # O QUE ELE FAZ?
+#
 # - Esse script instala os programas que utilizo no Ubuntu de forma 100% automática e com 0 interação com o usuário, faz upgrade
-#   e limpeza do sistema e é de fácil manutenção.
+#   e limpeza do sistema e é de fácil manutenção. Funciona no Ubuntu 20.04 LTS (ou superior).
 #
 # COMO USAR?
-#   - Dar permissões ao arquivo script: chmod +x nome_do_arquivo:
-#	- chmod +x ubuntu-post-install.sh
 #
-#   - Executar o script:
-#   	- ./ubuntu-post-install.sh
+#   - Dar permissões ao arquivo script: chmod +x nome_do_arquivo: ```chmod +x ubuntu-post-install.sh```
 #
-# DICA:
-#   - Para descompactar arquivos .tar.gz use:
-#   tar -zxvf nome_do_arquivo.tar.gz 
+#   - Executar o script: ```./ubuntu-post-install.sh```
+#
 # ------------------------------------------------------------------------ #
 # Changelog:
 #
@@ -30,11 +25,11 @@
 #   v3.2 31/10/2022, reinaldogpn:
 #     - (Re)Adição de alguns pacotes .deb e adição do flatpak Bottles em substituição ao Wine.
 #   v3.3 26/04/2023, reinaldogpn:
-#     - Reestruturação da função que instala pacotes .deb e inclusão de pacotes; adição de pacotes apt; remoção de alguns pacotes flatpak, adição de preferências de customização da dock do Ubuntu;
+#     - Reestruturação da função que instala pacotes .deb e inclusão de pacotes; adição de pacotes apt; remoção de alguns pacotes flatpak, adição de preferências de customização da dock do Ubuntu; 
 #     atualização da função que realiza testes iniciais; pequenas correções e remoção de comandos desnecessários.
 #
 # ------------------------------------------------------------------------ #
-# Extras:
+# Extra tips:
 #
 # Disable 2K Louncher on Steam's Civilization VI init options:
 # - eval $( echo "%command%" | sed "s/2KLauncher\/LauncherPatcher.exe'.*/Base\/Binaries\/Win64Steam\/CivilizationVI.exe'/" )
@@ -332,7 +327,7 @@ upgrade_e_limpeza_sistema()
 
 # ----------------------------- EXECUÇÃO --------------------------------- #
 realizar_testes
-# remover_locks
+remover_locks
 adicionar_arquitetura_i386
 atualizar_repositorios
 instalar_pacotes_apt
