@@ -9,6 +9,11 @@ This script automatically installs every program I use in my PC, runs updates an
 ```
 curl -sL https://raw.githubusercontent.com/reinaldogpn/ubuntu-post-install/main/ubuntu-post-install.sh | sudo bash
 ```
+*or*
+
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/reinaldogpn/ubuntu-post-install/main/ubuntu-post-install.sh)"
+```
 
 * _or you can download .sh file and run it by yourself:_
 
