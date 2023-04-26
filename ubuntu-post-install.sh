@@ -30,7 +30,8 @@
 #   v3.2 31/10/2022, reinaldogpn:
 #     - (Re)Adição de alguns pacotes .deb e adição do flatpak Bottles em substituição ao Wine.
 #   v3.3 26/04/2023, reinaldogpn:
-#     - Reestruturação da função que instala pacotes .deb e inclusão de pacotes; adição de pacotes apt; remoção de alguns pacotes flatpak, adição de preferências de customização da dock do Ubuntu.
+#     - Reestruturação da função que instala pacotes .deb e inclusão de pacotes; adição de pacotes apt; remoção de alguns pacotes flatpak, adição de preferências de customização da dock do Ubuntu;
+#     atualização da função que realiza testes iniciais; pequenas correções e remoção de comandos desnecessários.
 #
 # ------------------------------------------------------------------------ #
 # Extras:
@@ -200,7 +201,6 @@ instalar_pacotes_deb()
     url=${PACOTES_DEB[i]}
     wget -O "$DIRETORIO_DOWNLOAD_DEB/package$i.deb" $url
   done
-  # ----------------------
   # Instalação dos pacotes
   echo -e "${AMARELO}[INFO] - Instalando pacotes .deb baixados ...${SEM_COR}"
   sudo dpkg -i $DIRETORIO_DOWNLOAD_DEB/*.deb 
@@ -308,7 +308,7 @@ extra_config()
   gsettings set org.gnome.shell.extensions.dash-to-dock intellihide true
 # Instalando codecs extras
   echo -e "${AMARELO}[INFO] - Instalando codecs adicionais...${SEM_COR}"
-  sudo apt install ubuntu-restricted-extras
+  sudo apt install ubuntu-restricted-extras -y
 }
 
 upgrade_e_limpeza_sistema()
