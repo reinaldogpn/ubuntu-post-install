@@ -7,9 +7,11 @@
 #
 # COMO USAR?
 #
-#   - Dar permissões ao arquivo script: chmod +x nome_do_arquivo: ```chmod +x ubuntu-post-install.sh```
+#   - Dar permissões ao arquivo script: chmod +x nome_do_arquivo: 
+#     ~: chmod +x ubuntu-post-install.sh
 #
-#   - Executar o script: ```./ubuntu-post-install.sh```
+#   - Executar o script: 
+#     ~: ./ubuntu-post-install.sh
 #
 # ------------------------------------------------------------------------ #
 # Changelog:
