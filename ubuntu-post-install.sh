@@ -101,6 +101,7 @@ PACOTES_FLATPAK=(
   "io.github.mimbrero.WhatsAppDesktop"    # Whatsapp
   "org.gtk.Gtk3theme.Yaru-dark"           # Yaru-dark theme
   "org.gnome.Epiphany"                    # Epiphany (Gnome Web)
+  "com.rafaelmardojai.Blanket"            # Blanket
 )
 
 PACOTES_GAMES=(
