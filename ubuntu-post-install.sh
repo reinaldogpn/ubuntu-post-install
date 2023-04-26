@@ -288,6 +288,7 @@ extra_config()
   for _alias in "${ALIASES[@]}"; do
     echo file://$_alias >> $FILE
   done
+  gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 }
 
 upgrade_e_limpeza_sistema()
