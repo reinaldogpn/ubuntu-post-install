@@ -199,9 +199,10 @@ instalar_pacotes_deb()
 {
   # Download dos pacotes
   echo -e "${AMARELO}[INFO] - Baixando pacotes .deb ...${SEM_COR}"
+  mkdir $DIRETORIO_DOWNLOAD_DEB
   for (( i = 0; i < PACOTES_DEB_SIZE; i++ )); do
     url=${PACOTES_DEB[i]}
-    wget -O "/home/$USER/Downloads/package$i.deb" $url
+    wget -O "$DIRETORIO_DOWNLOAD_DEB/package$i.deb" $url
   done
   # ----------------------
   # Instalação dos pacotes
