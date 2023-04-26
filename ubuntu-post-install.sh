@@ -135,22 +135,18 @@ ALIASES=(
 # ------------------------------ FUNÇÕES --------------------------------- #
 realizar_testes()
 {
-# Internet conectando?
-if ! ping -c 1 8.8.8.8 -q ; then
-  echo -e "${VERMELHO}[ERROR] - Seu computador não tem conexão com a internet. Verifique os cabos e o modem.${SEM_COR}"
-  exit 1
-else
-  echo -e "${VERDE}[INFO] - Conexão com a internet funcionando normalmente.${SEM_COR}"
-fi
-
-# wget está instalado?
-if [[ ! -x $(which wget) ]]; then
-  echo -e "${VERMELHO}[ERROR] - O programa wget não está instalado.${SEM_COR}"
-  echo -e "${AMARELO}[INFO] - Instalando wget ...${SEM_COR}"
-  sudo apt install wget -y 
-else
-  echo -e "${VERDE}[INFO] - O programa wget já está instalado.${SEM_COR}"
-fi
+  # Internet conectando?
+  if ! ping -c 1 8.8.8.8 -q ; then
+    echo -e "${VERMELHO}[ERROR] - Seu computador não tem conexão com a internet. Verifique os cabos e o modem.${SEM_COR}"
+    exit 1
+  else
+    echo -e "${VERDE}[INFO] - Conexão com a internet funcionando normalmente.${SEM_COR}"
+  fi
+  
+  # Instalar ferramentas necessárias
+  echo -e "${AMARELO}[INFO] - Instalando ferramentas necessárias ...${SEM_COR}"
+  sudo apt install curl dkms git wget -y
+  echo -e "${VERDE}[INFO] - Pré-requisitos OK, prosseguindo com a execução do script.${SEM_COR}"
 }
 
 remover_locks() 
@@ -246,7 +242,6 @@ instalar_driver_TPLinkT2UPlus()
 {
 #  (Instalação opcional) Driver do adaptador wireless TPLink Archer T2U Plus
   echo -e "${AMARELO}[INFO] - Instalando driver wi-fi TPLink...${SEM_COR}"
-  sudo apt install -y dkms git 
   sudo apt install -y build-essential libelf-dev linux-headers-$(uname -r) 
   mkdir $HOME/Downloads/rtl8812au/
   git clone https://github.com/aircrack-ng/rtl8812au.git $HOME/Downloads/rtl8812au/ 
@@ -335,7 +330,7 @@ upgrade_e_limpeza_sistema()
 
 # ----------------------------- EXECUÇÃO --------------------------------- #
 realizar_testes
-remover_locks
+# remover_locks
 adicionar_arquitetura_i386
 atualizar_repositorios
 instalar_pacotes_apt
