@@ -300,13 +300,14 @@ extra_config()
   for _alias in "${ALIASES[@]}"; do
     echo file://$_alias >> $FILE
   done
-# Configurações para o dock do sistema
+  # Configurações para o dock do sistema
   echo -e "${AMARELO}[INFO] - Aplicando as preferências à dock do sistema...${SEM_COR}"
   gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
-  gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
   gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
+  gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
+  gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
   gsettings set org.gnome.shell.extensions.dash-to-dock intellihide true
-# Instalando codecs extras
+  # Instalando codecs extras
   echo -e "${AMARELO}[INFO] - Instalando codecs adicionais...${SEM_COR}"
   sudo apt install ubuntu-restricted-extras -y
 }
