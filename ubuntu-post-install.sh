@@ -26,10 +26,11 @@
 #     - Remoção de pacotes desnecessários e atualização geral do script.
 #   v3.2 31/10/2022, reinaldogpn:
 #     - (Re)Adição de alguns pacotes .deb e adição do flatpak Bottles em substituição ao Wine.
-#   v3.3 26/04/2023, reinaldogpn:
+#   v3.3.0 26/04/2023, reinaldogpn:
 #     - Reestruturação da função que instala pacotes .deb e inclusão de pacotes; adição de pacotes apt; remoção de alguns pacotes flatpak, adição de preferências de customização da dock do Ubuntu; 
 #     atualização da função que realiza testes iniciais; pequenas correções e remoção de comandos desnecessários.
-#
+#   v3.3.1 27/04/2023, reinaldogpn:
+#     - Adicionados os parâmetros de execução (-f|--full, -s|--simples) para selecionar entre dois tipos de instalação.
 # ------------------------------------------------------------------------ #
 # Extra tips:
 #
@@ -328,21 +329,6 @@ upgrade_e_limpeza_sistema()
 }
 
 # ----------------------------- EXECUÇÃO --------------------------------- #
-realizar_testes
-remover_locks
-adicionar_arquitetura_i386
-atualizar_repositorios
-instalar_pacotes_apt
-instalar_pacotes_deb
-instalar_dependencias_allegro
-adicionar_repositorios_flatpak
-instalar_pacotes_flatpak
-instalar_driver_TPLinkT2UPlus
-instalar_suporte_games
-instalar_lol_snap
-extra_config
-upgrade_e_limpeza_sistema
-
 case $1 in
     -f|--full) 
     realizar_testes
