@@ -2,7 +2,7 @@
 
 ### What it does
 
-This script automatically installs every program I use in my PC, runs updates and does after-clean tasks.
+This script automatically installs every program I use in my PC, runs updates and does post install cleaning.
 
 ### Running
 
