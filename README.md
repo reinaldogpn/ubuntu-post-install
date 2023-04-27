@@ -10,7 +10,7 @@ This script automatically installs every program I use in my PC, runs updates an
 bash <(curl -s https://raw.githubusercontent.com/reinaldogpn/ubuntu-post-install/main/ubuntu-post-install.sh) <param>
 ```
 
-##### Replace ```<param>``` with parameters ```-f || --full``` for a full installation, or ```-s || --simple``` for a much simpler one (without games support for eg.).
+* _Replace ```<param>``` with parameter ```-f or --full``` for a full installation, or ```-s or --simple``` for a much simpler one (without games support for eg.)._
 
 * _or you can download .sh file and run it by yourself:_
 
