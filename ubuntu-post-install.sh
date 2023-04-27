@@ -105,6 +105,7 @@ PACOTES_GAMES=(
   libvulkan1
   libvulkan1:i386
   lutris
+  ubuntu-restricted-extras
   steam-installer
   steam-devices
   steam:i386
@@ -306,9 +307,6 @@ extra_config()
   gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
   gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
   gsettings set org.gnome.shell.extensions.dash-to-dock intellihide true
-  # Instalando codecs extras
-  echo -e "${AMARELO}[INFO] - Instalando codecs adicionais...${SEM_COR}"
-  sudo apt install ubuntu-restricted-extras -y
 }
 
 upgrade_e_limpeza_sistema()
