@@ -30,7 +30,7 @@
 #     - Reestruturação da função que instala pacotes .deb e inclusão de pacotes; adição de pacotes apt; remoção de alguns pacotes flatpak, adição de preferências de customização da dock do Ubuntu; 
 #     atualização da função que realiza testes iniciais; pequenas correções e remoção de comandos desnecessários.
 #   v3.3.1 27/04/2023, reinaldogpn:
-#     - Adicionados os parâmetros de execução (-f|--full, -s|--simples) para selecionar entre dois tipos de instalação.
+#     - Adicionados os parâmetros de execução (-f|--full, -s|--simple) para selecionar entre dois tipos de instalação.
 # ------------------------------------------------------------------------ #
 # Extra tips:
 #
@@ -346,7 +346,7 @@ case $1 in
     extra_config
     upgrade_e_limpeza_sistema
     ;;
-    -s|--simples)
+    -s|--simple)
     realizar_testes
     remover_locks
     adicionar_arquitetura_i386
