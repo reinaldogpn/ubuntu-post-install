@@ -15,5 +15,5 @@ bash <(curl -s https://raw.githubusercontent.com/reinaldogpn/ubuntu-post-install
 * _or you can download .sh file and run it by yourself:_
 
 ```
-chmod +x ubuntu-post-install.sh && bash ubuntu-post-install.sh
+chmod +x ubuntu-post-install.sh && bash ubuntu-post-install.sh <param>
 ```
