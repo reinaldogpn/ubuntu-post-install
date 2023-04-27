@@ -360,4 +360,5 @@ case $1 in
     upgrade_e_limpeza_sistema
     ;;
     *) echo -e "Você pode escolher o modo de instalação utilizando o parâmetro ${AMARELO}-f${SEM_COR} ou ${AMARELO}--full${SEM_COR} para uma instalação completa e ${AMARELO}-s${SEM_COR} ou ${AMARELO}--simples${SEM_COR} para uma instalação mais simples."
+    ;;
 esac 
