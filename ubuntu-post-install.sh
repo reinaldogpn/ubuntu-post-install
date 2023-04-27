@@ -300,7 +300,7 @@ extra_config()
   done
   # Configurações para o dock do sistema
   echo -e "${AMARELO}[INFO] - Aplicando as preferências à dock do sistema...${SEM_COR}"
-  gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+  gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'focus-minimize-or-previews'
   gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
   gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
   gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
@@ -342,3 +342,36 @@ instalar_suporte_games
 instalar_lol_snap
 extra_config
 upgrade_e_limpeza_sistema
+
+case $1 in
+    -f|--full) 
+    realizar_testes
+    remover_locks
+    adicionar_arquitetura_i386
+    atualizar_repositorios
+    instalar_pacotes_apt
+    instalar_pacotes_deb
+    instalar_dependencias_allegro
+    adicionar_repositorios_flatpak
+    instalar_pacotes_flatpak
+    instalar_driver_TPLinkT2UPlus
+    instalar_suporte_games
+    instalar_lol_snap
+    extra_config
+    upgrade_e_limpeza_sistema
+    ;;
+    -s|--simples)
+    realizar_testes
+    remover_locks
+    adicionar_arquitetura_i386
+    atualizar_repositorios
+    instalar_pacotes_apt
+    instalar_pacotes_deb
+    adicionar_repositorios_flatpak
+    instalar_pacotes_flatpak
+    instalar_driver_TPLinkT2UPlus
+    extra_config
+    upgrade_e_limpeza_sistema
+    ;;
+    *) echo -e "Você pode escolher o modo de instalação utilizando o parâmetro ${AMARELO}-f${SEM_COR} ou ${AMARELO}--full${SEM_COR} para uma instalação completa e ${AMARELO}-s${SEM_COR} ou ${AMARELO}--simples${SEM_COR} para uma instalação mais simples."
+esac 
