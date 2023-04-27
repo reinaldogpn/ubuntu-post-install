@@ -46,7 +46,7 @@
 # - https://download.virtualbox.org/virtualbox/7.0.2/Oracle_VM_VirtualBox_Extension_Pack-7.0.2.vbox-extpack
 #
 # Woeusb requirements & use:
-# - sudo apt install libxml2-dev libfuse-dev ntfs-3g-dev
+# - sudo apt install libxml2-dev libfuse3-dev ntfs-3g-dev
 # - Download and compile Wimlib (https://wimlib.net); extrair; ./configure; make; sudo make install;
 # - sudo ldconfig -v
 # - Download Woeusb (https://github.com/WoeUSB/WoeUSB/releases)
@@ -64,7 +64,6 @@ PACOTES_APT=(
   filezilla
   gimp
   gnome-calendar
-  gnome-extensions
   gnome-photos
   gnome-software
   gnome-software-plugin-flatpak
@@ -109,6 +108,7 @@ PACOTES_GAMES=(
   steam-devices
   steam:i386
   wine
+  winetricks
 )
 
 # ***** CORES *****
@@ -313,7 +313,7 @@ extra_config()
 upgrade_e_limpeza_sistema()
 {
   echo -e "${AMARELO}[INFO] - Fazendo upgrade e limpeza do sistema ...${SEM_COR}"
-  sudo apt dist-upgrade -y 
+  sudo apt update -y && sudo apt dist-upgrade -y 
   sudo flatpak update -y 
   sudo snap refresh 
   sudo apt autoclean 
