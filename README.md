@@ -6,7 +6,7 @@ This script automatically installs every program I use in my PC, runs updates an
 
 ### Running
 
-```
+``` bash
 bash <(curl -s https://raw.githubusercontent.com/reinaldogpn/ubuntu-post-install/main/ubuntu-post-install.sh) <param>
 ```
 
@@ -14,6 +14,6 @@ bash <(curl -s https://raw.githubusercontent.com/reinaldogpn/ubuntu-post-install
 
 * _or you can download .sh file and run it by yourself:_
 
-```
+``` bash
 chmod +x ubuntu-post-install.sh && bash ubuntu-post-install.sh <param>
 ```
