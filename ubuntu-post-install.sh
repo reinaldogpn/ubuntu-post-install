@@ -58,7 +58,6 @@
 # ***** PROGRAMAS *****
 PACOTES_APT=(
   audacity
-  calibre
   codeblocks
   dconf-editor
   flatpak
@@ -72,7 +71,6 @@ PACOTES_APT=(
   gnome-tweaks
   gnome-weather
   inkscape
-  nautilus-dropbox
   neofetch
   pinhole
   plocate
@@ -130,7 +128,6 @@ DIRETORIOS=(
 
 ALIASES=(
   "/home/$USER/Projetos Projetos"
-  "/home/$USER/Dropbox Dropbox"
 )
 
 # ------------------------------ FUNÇÕES --------------------------------- #
@@ -247,6 +244,7 @@ instalar_driver_TPLinkT2UPlus()
   git clone https://github.com/aircrack-ng/rtl8812au.git $HOME/Downloads/rtl8812au/ 
   cd $HOME/Downloads/rtl8812au/
   sudo make dkms_install 
+  sudo modprobe 88XXau
 #  se a instalação for abortada, executar o comando: "sudo dkms remove 8812au/5.6.4.2_35491.20191025 --all"
   echo -e "${VERDE}[INFO] - Driver wi-fi instalado!${SEM_COR}"
 }
