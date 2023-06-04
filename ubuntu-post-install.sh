@@ -53,6 +53,9 @@
 # - Download Woeusb (https://github.com/WoeUSB/WoeUSB/releases)
 # - sudo ./woeusb --device path/Windows.iso /dev/sdX
 #
+# Fix for 'ç' in US layout keyboards:
+# - add GTK_IM_MODULE=cedilla to -> /etc/environment
+#
 # ---------------------------- VARIÁVEIS --------------------------------- #
 
 # ***** PROGRAMAS *****
