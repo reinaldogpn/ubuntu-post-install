@@ -32,7 +32,7 @@
 #   v3.3.1 27/04/2023, reinaldogpn:
 #     - Adicionados os parâmetros de execução (-f|--full, -s|--simple) para selecionar entre dois tipos de instalação.
 # ------------------------------------------------------------------------ #
-# Extra tips:
+# Extra tips: 
 #
 # Disable 2K Louncher on Steam's Civilization VI init options:
 # - eval $( echo "%command%" | sed "s/2KLauncher\/LauncherPatcher.exe'.*/Base\/Binaries\/Win64Steam\/CivilizationVI.exe'/" )
