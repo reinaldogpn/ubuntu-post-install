@@ -79,7 +79,7 @@ PACOTES_APT=(
   plocate
   qbittorrent
   rhythmbox
-  spotify
+  spotify-client
   virtualbox
   vlc
   zotero
@@ -160,7 +160,6 @@ remover_locks()
 
 adicionar_arquitetura_i386() 
 {
-  wget -qO- https://raw.githubusercontent.com/retorquere/zotero-deb/master/install.sh
   echo -e "${AMARELO}[INFO] - Adicionando arquitetura i386...${SEM_COR}"
   sudo dpkg --add-architecture i386 
 }
