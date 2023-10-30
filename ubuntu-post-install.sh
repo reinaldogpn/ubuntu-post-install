@@ -344,6 +344,20 @@ case $1 in
     extra_config
     upgrade_e_limpeza_sistema
     ;;
+    -d|--dev)
+    realizar_testes
+    remover_locks
+    adicionar_arquitetura_i386
+    atualizar_repositorios
+    instalar_pacotes_apt
+    instalar_pacotes_deb
+    instalar_dependencias_allegro
+    adicionar_repositorios_flatpak
+    instalar_pacotes_flatpak
+    instalar_driver_TPLinkT2UPlus
+    extra_config
+    upgrade_e_limpeza_sistema
+    ;;
     -s|--simple)
     realizar_testes
     remover_locks
@@ -357,6 +371,6 @@ case $1 in
     extra_config
     upgrade_e_limpeza_sistema
     ;;
-    *) echo -e "Você pode escolher o modo de instalação utilizando o parâmetro ${AMARELO}-f${SEM_COR} ou ${AMARELO}--full${SEM_COR} para uma instalação completa e ${AMARELO}-s${SEM_COR} ou ${AMARELO}--simples${SEM_COR} para uma instalação mais simples."
+    *) echo -e "Você pode escolher o modo de instalação utilizando o parâmetro ${AMARELO}-f${SEM_COR} ou ${AMARELO}--full${SEM_COR} para uma instalação completa, ${AMARELO}-d${SEM_COR} ou ${AMARELO}--dev${SEM_COR} para uma instalação incluindo ferramentas dev e ${AMARELO}-s${SEM_COR} ou ${AMARELO}--simples${SEM_COR} para uma instalação mais simples."
     ;;
 esac 
