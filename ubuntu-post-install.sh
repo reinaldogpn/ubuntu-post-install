@@ -61,6 +61,7 @@
 # ***** PROGRAMAS *****
 PACOTES_APT=(
   audacity
+  calibre
   codeblocks
   dconf-editor
   flatpak
