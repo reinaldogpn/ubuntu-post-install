@@ -37,9 +37,6 @@
 # Disable 2K Louncher on Steam's Civilization VI init options:
 # - eval $( echo "%command%" | sed "s/2KLauncher\/LauncherPatcher.exe'.*/Base\/Binaries\/Win64Steam\/CivilizationVI.exe'/" )
 #
-# Steam's Counter Strike Global Offensive init options:
-# - -tickrate 128 +fps_max 0 -nojoy -novid -fullscreen -r_emulate_gl -limitvsconst -forcenovsync -softparticlesdefaultoff +mat_queue_mode 2 +mat_disable_fancy_blending 1 +r_dynamic 0 -refresh 75
-#
 # Bottles's permission to add programs shortcut to desktop:
 # - flatpak override com.usebottles.bottles --user --filesystem=xdg-data/applications
 #
@@ -54,7 +51,8 @@
 # - sudo ./woeusb --device path/Windows.iso /dev/sdX
 #
 # Fix for 'ç' in US layout keyboards:
-# - add GTK_IM_MODULE=cedilla to -> /etc/environment
+# - sudo echo GTK_IM_MODULE=cedilla >> /etc/environment
+# - sudo echo QT_IM_MODULE=cedilla >> /etc/environment
 #
 # ---------------------------- VARIÁVEIS --------------------------------- #
 
