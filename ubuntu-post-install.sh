@@ -147,29 +147,29 @@ realizar_testes()
   
   # Instalar ferramentas necessárias
   echo -e "${AMARELO}[INFO] - Instalando ferramentas necessárias ...${SEM_COR}"
-  sudo apt install curl dkms git wget -y
+  sudo apt install curl dkms git wget -y &> /dev/null
   echo -e "${VERDE}[INFO] - Pré-requisitos OK, prosseguindo com a execução do script.${SEM_COR}"
 }
 
 remover_locks() 
 {
   echo -e "${AMARELO}[INFO] - Removendo locks...${SEM_COR}"
-  sudo rm /var/lib/dpkg/lock-frontend 
-  sudo rm /var/cache/apt/archives/lock 
+  sudo rm /var/lib/dpkg/lock-frontend &> /dev/null
+  sudo rm /var/cache/apt/archives/lock &> /dev/null
   echo -e "${VERDE}[INFO] - Locks removidos.${SEM_COR}"
 }
 
 adicionar_arquitetura_i386() 
 {
   echo -e "${AMARELO}[INFO] - Adicionando arquitetura i386...${SEM_COR}"
-  sudo dpkg --add-architecture i386 
+  sudo dpkg --add-architecture i386 &> /dev/null
 }
 
 atualizar_repositorios()
 {
   echo -e "${AMARELO}[INFO] - Atualizando repositórios ...${SEM_COR}"
-  curl -sL https://raw.githubusercontent.com/retorquere/zotero-deb/master/install.sh | sudo bash  # Adds Zotero's deb repository
-  curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg # Adds Spotify's deb repository
+  curl -sL https://raw.githubusercontent.com/retorquere/zotero-deb/master/install.sh &> /dev/null | sudo bash  # Adds Zotero's deb repository
+  curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg &> /dev/null | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg # Adds Spotify's deb repository
   echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
   sudo apt update -y 
 }
@@ -180,7 +180,7 @@ instalar_pacotes_apt()
   for pacote in ${PACOTES_APT[@]}; do
     if ! dpkg -l | grep -q $pacote; then
       echo -e "${AMARELO}[INFO] - Instalando o pacote $pacote ...${SEM_COR}"
-      sudo apt install $pacote -y 
+      sudo apt install $pacote -y &> /dev/null
       if dpkg -l | grep -q $pacote; then
         echo -e "${VERDE}[INFO] - O pacote $pacote foi instalado.${SEM_COR}"
       else
@@ -199,24 +199,24 @@ instalar_pacotes_deb()
   mkdir $DIRETORIO_DOWNLOAD_DEB
   for (( i = 0; i < PACOTES_DEB_SIZE; i++ )); do
     url=${PACOTES_DEB[i]}
-    wget -O "$DIRETORIO_DOWNLOAD_DEB/package$i.deb" $url
+    wget -O "$DIRETORIO_DOWNLOAD_DEB/package$i.deb" $url &> /dev/null
   done
   # Instalação dos pacotes
   echo -e "${AMARELO}[INFO] - Instalando pacotes .deb baixados ...${SEM_COR}"
-  sudo dpkg -i $DIRETORIO_DOWNLOAD_DEB/*.deb 
+  sudo dpkg -i $DIRETORIO_DOWNLOAD_DEB/*.deb &> /dev/null
   sudo apt --fix-broken install -y 
 }
 
 instalar_dependencias_allegro()
 {
   echo -e "${AMARELO}[INFO] - Instalando dependências do Allegro ...${SEM_COR}"
-  sudo apt install -y liballegro5-dev cmake g++ freeglut3-dev libxcursor-dev libpng-dev libjpeg-dev libfreetype6-dev libgtk2.0-dev libasound2-dev libpulse-dev libopenal-dev libflac-dev libdumb1-dev libvorbis-dev libphysfs-dev 
+  sudo apt install -y liballegro5-dev cmake g++ freeglut3-dev libxcursor-dev libpng-dev libjpeg-dev libfreetype6-dev libgtk2.0-dev libasound2-dev libpulse-dev libopenal-dev libflac-dev libdumb1-dev libvorbis-dev libphysfs-dev &> /dev/null 
 }
 
 adicionar_repositorios_flatpak()
 {
   echo -e "${AMARELO}[INFO] - Adicionando repositórios flatpak com o remote-add...${SEM_COR}"
-  flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+  flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo &> /dev/null
   echo -e "${VERDE}[INFO] - Nada mais a adicionar.${SEM_COR}"
 }
 
@@ -226,7 +226,7 @@ instalar_pacotes_flatpak()
   for pacote in ${PACOTES_FLATPAK[@]}; do
     if ! flatpak list | grep -q $pacote; then
       echo -e "${AMARELO}[INFO] - Instalando o pacote $pacote...${SEM_COR}"
-      sudo flatpak install -y flathub $pacote 
+      sudo flatpak install -y flathub $pacote &> /dev/null
       if flatpak list | grep -q $pacote; then
         echo -e "${VERDE}[INFO] - O pacote $pacote foi instalado.${SEM_COR}"
       else
@@ -242,12 +242,12 @@ instalar_driver_TPLinkT2UPlus()
 {
 #  (Instalação opcional) Driver do adaptador wireless TPLink Archer T2U Plus
   echo -e "${AMARELO}[INFO] - Instalando driver wi-fi TPLink...${SEM_COR}"
-  sudo apt install -y build-essential dkms
+  sudo apt install -y build-essential dkms &> /dev/null
   mkdir $HOME/Downloads/rtl8812au/
   git clone https://github.com/aircrack-ng/rtl8812au.git $HOME/Downloads/rtl8812au/ 
   cd $HOME/Downloads/rtl8812au/
-  sudo make && sudo make install
-  sudo modprobe 8812au
+  sudo make && sudo make install &> /dev/null
+  sudo modprobe 8812au &> /dev/null
 #  se a instalação for abortada, executar o comando: "sudo dkms remove 8812au/5.6.4.2_35491.20191025 --all"
   echo -e "${VERDE}[INFO] - Driver wi-fi instalado!${SEM_COR}"
 }
@@ -258,7 +258,7 @@ instalar_suporte_games()
   for pacote in ${PACOTES_GAMES[@]}; do
     if ! dpkg -l | grep -q $pacote; then
       echo -e "${AMARELO}[INFO] - Instalando o pacote $pacote ...${SEM_COR}"
-      sudo apt install $pacote -y 
+      sudo apt install $pacote -y &> /dev/null
       if dpkg -l | grep -q $pacote; then
         echo -e "${VERDE}[INFO] - O pacote $pacote foi instalado.${SEM_COR}"
       else
@@ -273,11 +273,11 @@ instalar_suporte_games()
 instalar_lol_snap()
 {
   echo -e "${AMARELO}[INFO] - Instalando League of Legends (snap)...${SEM_COR}"
-  sudo snap install --beta wine-platform-runtime
-  sudo snap install --beta wine-platform-5-staging
-  sudo snap install --beta wine-platform-7-staging-core20
-  sudo snap install --edge leagueoflegends --devmode
-  sudo snap refresh
+  sudo snap install --beta wine-platform-runtime &> /dev/null
+  sudo snap install --beta wine-platform-5-staging &> /dev/null
+  sudo snap install --beta wine-platform-7-staging-core20 &> /dev/null
+  sudo snap install --edge leagueoflegends --devmode &> /dev/null
+  sudo snap refresh &> /dev/null
   if snap list | grep -q "leagueoflegends"; then
     echo -e "${VERDE}[INFO] - O instalador de League of Legends está pronto, use 'snap run leagueoflegends' para concluir a instalação.${SEM_COR}"
   else
@@ -313,12 +313,12 @@ extra_config()
 upgrade_e_limpeza_sistema()
 {
   echo -e "${AMARELO}[INFO] - Fazendo upgrade e limpeza do sistema ...${SEM_COR}"
-  sudo apt update -y && sudo apt dist-upgrade -y 
-  sudo flatpak update -y 
-  sudo snap refresh 
-  sudo apt autoclean 
-  sudo apt autoremove -y 
-  rm -rf $HOME/Downloads/rtl8812au $DIRETORIO_DOWNLOAD_DEB 
+  sudo apt update -y && sudo apt dist-upgrade -y &> /dev/null
+  sudo flatpak update -y &> /dev/null
+  sudo snap refresh &> /dev/null
+  sudo apt autoclean &> /dev/null
+  sudo apt autoremove -y &> /dev/null
+  rm -rf $HOME/Downloads/rtl8812au $DIRETORIO_DOWNLOAD_DEB &> /dev/null
   neofetch
   echo -e "${VERDE}[INFO] - Configuração concluída!${SEM_COR}"
   echo -e "${AMARELO}[INFO] - Reinicialização necessária, deseja reiniciar agora? [S/n]:${SEM_COR}"
