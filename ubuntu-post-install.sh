@@ -168,8 +168,8 @@ adicionar_arquitetura_i386()
 atualizar_repositorios()
 {
   echo -e "${AMARELO}[INFO] - Atualizando repositórios ...${SEM_COR}"
-  curl -sL https://raw.githubusercontent.com/retorquere/zotero-deb/master/install.sh &> /dev/null | sudo bash  # Adds Zotero's deb repository
-  curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg &> /dev/null | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg # Adds Spotify's deb repository
+  curl -sL https://raw.githubusercontent.com/retorquere/zotero-deb/master/install.sh | sudo bash  # Adds Zotero's deb repository
+  curl -sS https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
   echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
   sudo apt update -y 
 }
