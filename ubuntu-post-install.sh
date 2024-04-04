@@ -370,6 +370,10 @@ case $1 in
     extra_config
     upgrade_e_limpeza_sistema
     ;;
+    --wifi)
+    realizar_testes
+    instalar_driver_TPLinkT2UPlus
+    ;;
     *) echo -e "Você pode escolher o modo de instalação utilizando o parâmetro ${AMARELO}-f${SEM_COR} ou ${AMARELO}--full${SEM_COR} para uma instalação completa, ${AMARELO}-d${SEM_COR} ou ${AMARELO}--dev${SEM_COR} para uma instalação incluindo ferramentas dev e ${AMARELO}-s${SEM_COR} ou ${AMARELO}--simples${SEM_COR} para uma instalação mais simples."
     ;;
 esac 
